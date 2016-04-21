@@ -1,0 +1,85 @@
+%!TEX root=../document.tex
+
+\section{Ergebnisse}
+\label{sec:Ergebnisse}
+
+Die App wurde in iOS mit der Programmiersprache Swift entwickelt.
+
+\subsection{Swift}
+\label{sec:Swift}
+
+Um Nochmal Swift zu wiederholen hab ich mir das offizielle Tutorial von Apple angeschaut \cite{swift-tutorial}.
+
+
+\textbf{Basics} \\
+In Swift können im allgemeinen redundante Symbole weggelassen werden; also Strichpunkte und runde Klammern bei \texttt{if}s, sowie \texttt{break}s in \texttt{switch} statements können weggelassen werden (funktioniert dabei ähnlich wie Python).
+
+Swift ist stark typisiert, der Dateityp wird aber vom Compiler inferred; das heißt man kann, aber muss ihn nicht explizit dazu schreiben:
+
+\begin{lstlisting}[caption=Normale Variablendefinition]
+var x = 0
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Variablendefinition mit definiertem Datentyp]
+var str: String = "asdf"
+\end{lstlisting}
+
+Konstanten werden mit \texttt{let} definiert. Laut Konvention sollten alle Variablen, welche während des Programmablaufs nicht geändert werden sollten mit \texttt{let} deklariert werden.
+Der Compiler warnt auch, wenn er eine \texttt{var} Deklaration findet, welche nicht geändert wird.
+
+\begin{lstlisting}[caption=Definition einer Konstanten]
+let const = 123
+\end{lstlisting}
+
+
+\textbf{Funktionen} \\
+Funktionen sehen in Swift wie folgt aus:
+
+\begin{lstlisting}[caption=Allgemeine Funktionsdefinition]
+func <name>(<parameters>) -> <return type> {
+    <function body>
+}
+\end{lstlisting}
+
+Die Rückgabetypdefinition kann, wenn es keinen Rückgabetyp gibt auch weggelassen werden; \texttt{-> Void} ist also nicht notwendig.
+
+
+\textbf{Class und Struct} \\
+In Swift gibt es einen Unterschied zwischen Klassen und Structs. Structs können prinzipiell mit ihrem Gegenstück in C verglichen werden, sie sind quasi eine Ansammlung an Variablen/Werten und haben keine Funktionen (abgesehen von einer init Funktion).
+
+Klassen hingegen funktionieren wie in anderen Objektorientierten Programmiersprachen auch; Sie können Objekt-Funktionen haben und voneinander erben.
+Ein anderer wichtiger Unterschied ist, dass Structs \emph{pass by value} und Klassen \emph{pass by reference} sind.
+
+\begin{lstlisting}[caption=Beispiel Structdefinition]
+struct SomeStruct {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Beispiel Klassendefinition]
+class SomeClass {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    
+    func someFunc() -> String {
+        return self.name
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Beispiel Subklassendefinition von SomeClass]
+class SomeSubClass: SomeClass {
+    var subName: String
+}
+\end{lstlisting}
+
+
+\subsection{Implementierung}
+\label{sec:Implementierung}
+
+
